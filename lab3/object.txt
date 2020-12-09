@@ -1,0 +1,43 @@
+{
+    "tati": {
+        "state": "bad",
+        "cost": 900
+    },
+    "wakizashi": {
+        "cost": {
+            "sword": 2000,
+            "saya": 500
+        }
+    },
+    "katana": {
+        "type": {
+            "type": "legal",
+            "material": {
+                "main": "duralumin",
+                "additives": [
+                    "steel",
+                    "chromium",
+                    "carbon",
+                    "cobalt"
+                ]
+            },
+            "owner": {
+                "name": "Victor",
+                "age": 20,
+                "status": "nikto"
+            }
+        },
+        "cost": 5000
+    },
+    "daito": {
+        "name": "Monohoshi zao",
+        "owner": {
+            "name": {
+                "name": "Sasaki Kojiro",
+                "real": false
+            },
+            "age": 29,
+            "status": "Ronin"
+        }
+    }
+}

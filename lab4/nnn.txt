@@ -1,0 +1,2 @@
+		<p>Введите te</p>
+    	<input name="te" spellcheck="false" autocomplete="off">

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Моя страница</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Страница записи в базу</h1>
+
+    <p>Фамилия:</p>
+    <input id="surname-field" type="text" spellcheck="false" autocomplete="off">
+
+    <p>Адрес электронной почты:</p>
+    <input id="mail-field" type="text" spellcheck="false" autocomplete="off">
+	
+	<p>Номер телефона:</p>
+    <input id="phone-field" type="text" spellcheck="false" autocomplete="off">
+
+    <br>
+    <br>
+
+	<button onclick="makeAction()">Отправить запрос</button>
+	
+	<br>
+	
+	<button onclick="makeClean()">Очистить поля</button>
+
+    <br>
+    <br>
+
+    <h1 id="result-label"></h1>
+
+<script>
+	"use strict";
+	function ajaxPost(urlString, bodyString, callback) {
+		let r = new XMLHttpRequest();
+		r.open("POST", urlString, true);
+		r.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		r.send(bodyString);
+		r.onload = function() {
+			callback(r.response);
+		}
+	}
+
+	function makeAction() {
+		const f1 = document.getElementById("surname-field");
+		const surname = f1.value;
+		if (!surname) {
+			alert("Введите фамилию.");
+			return false;
+		}
+
+		const f2 = document.getElementById("mail-field");
+		const mail = f2.value;
+		if (!mail) {
+			alert("Введите адрес почты.");
+			return false;;
+		}
+
+		const f3 = document.getElementById("phone-field");
+		const phone = f3.value;
+		if (!phone) {
+			alert("Введите номер телефона.");
+			return false;;
+		}
+		alert("!");
+		const label = document.getElementById("result-label");
+		ajaxPost("/save/info", JSON.stringify({
+			surname, mail, phone
+		}), function(answerString) {
+			const answerObject = JSON.parse(answerString);
+			const result = answerObject.result;
+			alert(result);
+			label.innerHTML = `Ответ: ${result}.`
+		});
+	}
+	
+	function makeClean() {
+		(document.getElementById("surname-field")).value = "";
+		(document.getElementById("mail-field")).value = "";
+		(document.getElementById("phone-field")).value = "";
+	}
+</script>
+</body>
+</html>

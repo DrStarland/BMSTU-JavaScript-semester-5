@@ -1,0 +1,34 @@
+[
+    {
+        "name": "fadfha",
+        "cost": "55"
+    },
+    {
+        "name": "dffd",
+        "cost": "55"
+    },
+    {
+        "name": "hahah",
+        "cost": "666"
+    },
+    {
+        "name": "Zhiguli",
+        "cost": "40"
+    },
+    {
+        "name": "Pobeda",
+        "cost": "440"
+    },
+    {
+        "name": "Niva",
+        "cost": "190"
+    },
+    {
+        "name": "Niva",
+        "cost": "190"
+    },
+    {
+        "name": "Niva",
+        "cost": "190"
+    }
+]

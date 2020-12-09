@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Phobos",
+        "cars": [
+            "Zhiguli",
+            "fadfha",
+            "dffd"
+        ]
+    },
+    {
+        "name": "Deimos",
+        "cars": [
+            "Zhiguli",
+            "fadfha",
+            "dffd",
+            "Zulhrab",
+            "Volga",
+            "Pobeda"
+        ]
+    },
+    {
+        "name": "Pluto",
+        "cars": [
+            "Niva",
+            "Pobeda",
+            "Zhiguli",
+            "UAZ"
+        ]
+    }
+]

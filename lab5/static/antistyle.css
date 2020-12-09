@@ -1,0 +1,18 @@
+body {
+    padding: 50px;
+    background: DarkTurquoise;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.btn-class {
+    padding: 8px;
+    background: orange;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+}
+
+h1 {
+    color: red;
+    font-size: 40px;
+}

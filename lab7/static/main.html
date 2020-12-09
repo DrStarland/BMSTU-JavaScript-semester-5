@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная страница</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Работа с данными о машинах и складах</h1>
+	<h2>Используйте латинский алфавит при работе</h2><br>
+	
+	<h2>Записать новый автомобиль:</h2>
+    <p>Название:</p>
+    <input id="car-insert-field" type="text" spellcheck="false" autocomplete="off">
+    <p>Стоимость:</p>
+    <input id="cost-field" type="text" spellcheck="false" autocomplete="off"><br>
+	<button onclick="insertingCar(`car`)">Отправить запрос</button>
+	<br><br>
+    <h1 id="car-insert-result-label"></h1>
+	<br>
+	
+	<h2>Прочитать стоимость автомобиля:</h2>
+    <p>Название машины:</p>
+    <input id="car-select-field" type="text" spellcheck="false" autocomplete="off">
+	<button onclick="gettingInfo(`car`)">Отправить запрос</button><br><br>
+    <h1 id="car-select-result-label"></h1><br>
+	
+	<h2>Записать новый склад:</h2>
+    <p>Название:</p>
+    <input id="warehouse-insert-field" type="text" spellcheck="false" autocomplete="off">
+    <p>Названия машин на складе (через запятую с пробелом):</p>
+    <input id="car-list-field" type="text" spellcheck="false" autocomplete="off"><br>
+	<button onclick="insertingWarehouse(`warehouse`)">Отправить запрос</button><br><br>
+    <h1 id="warehouse-insert-result-label"></h1><br>
+	
+	<h2>Посмотреть машины на складе:</h2>
+    <p>Название склада:</p>
+    <input id="warehouse-select-field" type="text" spellcheck="false" autocomplete="off">
+	<button onclick="gettingInfo(`warehouse`)">Отправить запрос</button><br><br>
+    <h1 id="warehouse-select-result-label"></h1><br>
+	
+
+<script>
+	"use strict";
+	
+	function ajaxGet(urlString, callback) {
+        let r = new XMLHttpRequest();
+        r.open("GET", urlString, true);
+        r.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+        r.send(null);
+        r.onload = function() {
+            callback(r.response);
+        }
+    };
+	
+    function gettingInfo(type) {
+		const label = document.getElementById(type + "-select-result-label");
+		const field = document.getElementById(type + "-select-field");
+		const name = field.value;
+			
+		const url = `/select/record?type=${type}&name=${name}`;
+        ajaxGet(url, function(stringAnswer) {
+            const result = JSON.parse(stringAnswer).result;
+            label.innerHTML = `Ответ: ${result}.`;
+        });
+    }
+
+
+	function insertingCar(type) {
+		const name = document.getElementById("car-insert-field").value;
+		if (!name) {
+			alert("Введите название автомобиля.");
+			return false;
+		}
+
+		const cost = document.getElementById("cost-field").value;
+		if (!cost) {
+			alert("Введите стоимость машины.");
+			return false;
+		}
+
+		const label = document.getElementById("car-insert-result-label");
+		
+		const url = `/insert/record?type=${type}&name=${name}&cost=${cost}`;
+        ajaxGet(url, function(stringAnswer) {
+            const result = JSON.parse(stringAnswer).result;
+            label.innerHTML = `Ответ: ${result}.`;
+        });
+	}
+	
+	function insertingWarehouse(type) {
+		alert("?");
+		const name = document.getElementById("warehouse-insert-field").value;
+		if (!name) {
+			alert("Введите название склада.");
+			return false;
+		}
+
+		const car_array_string = document.getElementById("car-list-field").value;
+		if (!car_array_string) {
+			alert("Введите список машин.");
+			return false;
+		}
+
+		const label = document.getElementById("warehouse-insert-result-label");
+		
+		const url = `/insert/record?type=${type}&name=${name}&cars=${car_array_string}`;
+        ajaxGet(url, function(stringAnswer) {
+            const result = JSON.parse(stringAnswer).result;
+            label.innerHTML = `Ответ: ${result}.`;
+        });
+	}
+</script>
+</body>
+</html>

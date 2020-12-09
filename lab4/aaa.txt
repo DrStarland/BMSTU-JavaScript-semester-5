@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+</head>
+<body>  
+    <h1>Страница A</h1>
+    <form method="GET" action="0">
+		<p>Введите test</p>
+    	<input name="test" spellcheck="false" autocomplete="off">
+		<p>Введите array</p>
+    	<input name="array" spellcheck="false" autocomplete="off">
+		<p>Введите net</p>
+    	<input name="net" spellcheck="false" autocomplete="off"><br>
+        <br>
+        <input type="submit" value="Отправить запрос">
+    </form>
+</body>
+</html>

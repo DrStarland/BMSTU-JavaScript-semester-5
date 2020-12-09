@@ -1,0 +1,27 @@
+body {
+    padding: 20px;
+    background: burlywood;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.btn-class {
+    padding: 6px;
+    background: blue;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+}
+
+h1 {
+    color: red;
+    font-size: 40px;
+}
+
+h2 {
+    color: orangered;
+    font-size: 20px;
+}
+
+#car-list-field	{
+	width: 800px
+}
